@@ -3,8 +3,8 @@
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  verify the account
-// @updateURL    https://raw.githubusercontent.com/sakot/VerifyAccount/master/verifyaccount.user.js
-// @downloadURL  https://raw.githubusercontent.com/sakot/VerifyAccount/master/verifyaccount.user.js
+// @updateURL    https://github.com/sakot/VerifyAccount/raw/master/verifyaccount.user.js
+// @downloadURL  https://github.com/sakot/VerifyAccount/raw/master/verifyaccount.user.js
 // @author       zhoujc
 // @match        https://jnpay.jnbank.com.cn/MerchantWeb/merchant/merchantInfo-mchtStaFDetail?param=*
 // @match        https://jnpay.jnbank.com.cn/MerchantWeb/merchant/merchantInfo-mchtStaFRedirct?param=*
