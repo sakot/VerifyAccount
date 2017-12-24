@@ -25,7 +25,7 @@ function verifyaccount()
             $('div.amz-container').append('<p class="am-alert am-alert-danger" style="float: left;margin-left: 2em;">* Error: 绑定账号错误或非个人卡！</p>');
         }
         if (settleAcct.substr(8, 3) != '026'){
-            $('div.amz-container').append('<p class="am-alert am-alert-danger" style="float: left;margin-left: 2em;">* Error: 绑定账号非通河农商行账户或账号错误！</p>');
+            $('div.amz-container').append('<p class="am-alert am-alert-danger" style="float: left;margin-left: 2em;">* Error: 非通河农商行账户或账号错误！</p>');
         }
     }
 }
