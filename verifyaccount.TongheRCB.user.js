@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name         收银通绑定账号检测
+// @name         通河农商行收银通绑定账号检测
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  verify the account
-// @updateURL    https://github.com/sakot/VerifyAccount/raw/master/verifyaccount.user.js
-// @downloadURL  https://github.com/sakot/VerifyAccount/raw/master/verifyaccount.user.js
+// @updateURL    https://raw.githubusercontent.com/sakot/VerifyAccount/master/verifyaccount.user.js
+// @downloadURL  https://raw.githubusercontent.com/sakot/VerifyAccount/master/verifyaccount.user.js
 // @author       sakot
 // @match        https://jnpay.jnbank.com.cn/MerchantWeb/merchant/merchantInfo-mchtStaFDetail?param=*
 // @match        https://jnpay.jnbank.com.cn/MerchantWeb/merchant/merchantInfo-mchtStaFRedirct?param=*
@@ -20,8 +20,13 @@ var settleAcct = jsonData.settleAcct;
 
 function verifyaccount()
 {
-    if (settleAcct.substr(0, 1) == '6' && !luhnCheck(jsonData.settleAcct)){
-        $('div.amz-container').append('<p class="am-alert am-alert-danger" style="float: left;margin-left: 2em;">* Error: 绑定账号错误或非个人卡！</p>');
+    if (settleAcct.substr(0, 1) == '6'){
+        if (!luhnCheck(jsonData.settleAcct)){
+            $('div.amz-container').append('<p class="am-alert am-alert-danger" style="float: left;margin-left: 2em;">* Error: 绑定账号错误或非个人卡！</p>');
+        }
+        if (settleAcct.substr(8, 3) != '026'){
+            $('div.amz-container').append('<p class="am-alert am-alert-danger" style="float: left;margin-left: 2em;">* Error: 绑定账号非通河农商行账户或账号错误！</p>');
+        }
     }
 }
 
