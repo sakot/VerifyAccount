@@ -10,7 +10,6 @@
 // @match        https://jnpay.jnbank.com.cn/MerchantWeb/merchant/merchantInfo-mchtStaFRedirct?param=*
 // @match        https://jnpay.jnbank.com.cn/MerchantWeb/mchtInfo/mchtInfojudge-mchtStaFRedirct?param=*
 // @grant        none
-// @require      https://code.jquery.com/jquery-3.2.1.slim.min.js
 // ==/UserScript==
 
 var fromindex = $("html").html().indexOf('console.log(');
