@@ -9,6 +9,7 @@
 // @match        https://jnpay.jnbank.com.cn/MerchantWeb/merchant/merchantInfo-mchtStaFDetail?param=*
 // @match        https://jnpay.jnbank.com.cn/MerchantWeb/merchant/merchantInfo-mchtStaFRedirct?param=*
 // @match        https://jnpay.jnbank.com.cn/MerchantWeb/mchtInfo/mchtInfojudge-mchtStaFRedirct?param=*
+// @require      https://github.com/mc-zone/IDValidator/raw/master/IDValidator.min.js
 // @grant        none
 // ==/UserScript==
 
@@ -16,6 +17,7 @@ var fromindex = $("html").html().indexOf('console.log(');
 var endindex = $("html").html().indexOf(');', fromindex);
 var jsonData = JSON.parse($("html").html().substring(fromindex + 12, endindex));
 var settleAcct = jsonData.settleAcct;
+var artifId = jsonData.artifId;
 
 function verifyaccount()
 {
@@ -37,6 +39,15 @@ function luhnCheck(luhn)
     return (sum%10 === 0) && (sum > 0);
 }
 
+function verifyId()
+{
+    var Validator = new IDValidator();
+    if (!Validator.isValid(artifId)){
+        $('div.amz-container').append('<p class="am-alert am-alert-danger" style="float: left;margin-left: 2em;">* Error: 法人证件录入有误！</p>');
+    }
+}
+
 (function() {
     verifyaccount();
+    verifyId();
 })();
