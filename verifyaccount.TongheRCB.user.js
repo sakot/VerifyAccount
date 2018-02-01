@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         通河农商行收银通绑定账号检测
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  verify the account
 // @updateURL    https://github.com/sakot/VerifyAccount/raw/master/verifyaccount.TongheRCB.user.js
 // @downloadURL  https://github.com/sakot/VerifyAccount/raw/master/verifyaccount.TongheRCB.user.js
